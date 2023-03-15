@@ -375,6 +375,7 @@ static int init_yaffs_dev(struct mtd_ctx *ctx) {
 			.end_block = (mtd->size / mtd->erasesize) - 1,
 			.n_reserved_blocks = 2,
 			.is_yaffs2 = (mtd->writesize >= 2048 ? 1 : 0),
+			.stored_endian = 2,
 		},
 		.drv = yaffs_driver_mtd,
 		.driver_context = ctx,

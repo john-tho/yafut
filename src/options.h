@@ -17,6 +17,7 @@
 	"[ -B <bytes> ] "                                                      \
 	"[ -T ] "                                                              \
 	"[ -E ] "                                                              \
+	"[ -S ] "                                                              \
 	"[ -v ] "                                                              \
 	"[ -h ] "                                                              \
 	"\n\n"                                                                 \
@@ -31,6 +32,7 @@
 	"    -B  force Yaffs block size to <bytes> (use 'k' suffix for KiB)\n" \
 	"    -T  force inband tags\n"                                          \
 	"    -E  disable ECC for tags\n"                                       \
+	"    -S  skip Yaffs checkpointing read and write\n"                    \
 	"    -v  verbose output (can be used up to two times)\n"               \
 	"    -h  show usage information and exit\n"
 
@@ -53,6 +55,7 @@ struct opts {
 	int block_size;
 	bool force_inband_tags;
 	bool disable_ecc_for_tags;
+	bool skip_checkpointing;
 };
 
 void options_parse_env(void);

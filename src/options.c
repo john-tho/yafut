@@ -90,7 +90,7 @@ int options_parse_cli(int argc, char *argv[], struct opts *opts) {
 		.block_size = SIZE_UNSPECIFIED,
 	};
 
-	while ((opt = getopt(argc, argv, "B:C:d:Ehi:m:o:rTvw")) != -1) {
+	while ((opt = getopt(argc, argv, "B:C:d:Ehi:m:o:rSTvw")) != -1) {
 		switch (opt) {
 		case 'B':
 			if (opts->block_size != SIZE_UNSPECIFIED) {
@@ -155,6 +155,13 @@ int options_parse_cli(int argc, char *argv[], struct opts *opts) {
 				return -1;
 			}
 			opts->mode = PROGRAM_MODE_READ;
+			break;
+		case 'S':
+			if (opts->skip_checkpointing) {
+				log("-S can only be used once");
+				return -1;
+			}
+			opts->skip_checkpointing = true;
 			break;
 		case 'T':
 			if (opts->force_inband_tags) {

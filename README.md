@@ -106,6 +106,8 @@ options are:
     system does not use ECC for tags, the `-E` command-line option can
     be used to tell Yafut to act accordingly.
 
+  - Skip Yaffs2 checkpoint reading and writing (`-S`).
+
 ### Which Yaffs file system versions does this tool work with?
 
 Yaffs code that Yafut builds upon supports both Yaffs1 and Yaffs2 file

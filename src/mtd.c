@@ -273,6 +273,8 @@ static int init_yaffs_dev(struct mtd_ctx *ctx, const struct mtd_info_user *mtd,
 			.inband_tags = use_inband_tags(is_yaffs2, oobavail,
 						       opts),
 			.no_tags_ecc = opts->disable_ecc_for_tags,
+			.skip_checkpt_rd = opts->skip_checkpointing,
+			.skip_checkpt_wr = opts->skip_checkpointing,
 		},
 	};
 
